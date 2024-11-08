@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Funções</title>
+    <style>
+        /* Estilo da página e painel */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .panel, .login-panel {
+            width: 90%;
+            max-width: 400px;
+            background-color: #181818;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        .header {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .subheader {
+            font-size: 16px;
+            color: #ff00ff;
+            margin-bottom: 20px;
+        }
+        .button-bar {
+            background-color: #ff00ff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .switch-bar {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .switch-bar label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            color: #fff;
+        }
+        .option {
+            background-color: #1e1e1e;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .option p {
+            margin: 0;
+            font-size: 14px;
+            color: #aaa;
+        }
+        .footer {
+            font-size: 12px;
+            color: #888;
+            margin-top: 10px;
+        }
+        .copyright {
+            margin-top: 5px;
+        }
+        /* Estilo do toggle switch */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 34px;
+            height: 20px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #555;
+            transition: 0.4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 14px;
+            width: 14px;
+            left: 3px;
+            bottom: 3px;
+            background-color: #fff;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #ff00ff;
+        }
+        input:checked + .slider:before {
+            transform: translateX(14px);
+        }
+        /* Esconde o painel principal inicialmente */
+        .panel {
+            display: none;
+        }
+        /* Estilo do painel de login */
+        .login-panel input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #555;
+            background-color: #333;
+            color: #fff;
+            font-size: 16px;
+        }
+        .login-panel button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff00ff;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #fff;
+            font-size: 16px;
+        }
+        /* Mensagem quando o software expira */
+        .expired-message {
+            color: #fff;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .expired-message a {
+            color: #ff00ff;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        const activationDate = new Date('2024-11-06'); // Дата активации
+        const daysLimit = 3; // Срок действия (3 дня)
+
+        function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Проверка логина и пароля
+            if (username === "LONELY" && password === "DLL") {
+                const currentDate = new Date();
+                const timeDiff = (currentDate - activationDate) / (1000 * 3600 * 24); // Разница в днях
+
+                if (timeDiff > daysLimit) {
+                    // Сообщение, если срок действия прошел
+                    document.querySelector(".login-panel").style.display = "none";
+                    document.querySelector(".expired-message").style.display = "block";
+                    return;
+                }
+
+                // Показать панель функций
+                document.querySelector(".login-panel").style.display = "none";
+                document.querySelector(".panel").style.display = "block";
+            } else {
+                alert("Username or Password incorrect");
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="login-panel">
+    <h2>NoAimeXe🈹</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">RUN</button>
+</div>
+
+<div class="panel">
+    <!-- Cabeçalho -->
+    <div class="header">NoAimeXe🈴</div>
+    <div class="subheader">Telegram ~ lonelyexeff</div>
+
+    <!-- Botão de Funções -->
+    <div class="button-bar">Functions</div>
+
+    <!-- Barra de Switches -->
+    <div class="switch-bar">
+        <label><input type="checkbox"> Trick V1</label>
+        <label><input type="checkbox"> Trick V2</label>
+        <label><input type="checkbox"> Trick V3</label>
+    </div>
+
+    <!-- Opções -->
+    <div class="option">
+        <div>
+            <strong>AIMBOT</strong>
+            <p>Creator @LONELY EXE 👿</p>
+        </div>
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="option">
+        <div>
+            <strong>NO RECOIL</strong>
+            <p>Creator @LONELY EXE 👿</p>
+        </div>
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="option">
+        <div>
+            <strong>HEADTRICK 80%</strong>
+            <p>Creator @LONELY EXE 👿</p>
+        </div>
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="option">
+        <div>
+            <strong>AIMTRICK</strong>
+            <p>Creator @LONELY EXE 👿</p>
+        </div>
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="option">
+        <div>
+            <strong>BYPASS/ANTIBAN</strong>
+            <p>Creator @LONELY EXE 👿</p>
+        </div>
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <!-- Rodapé -->
+    <div class="footer">exe7</div>
+    <div class="copyright"> ПИШИ В ТЕЛЕГРАММ ПО ВОДУ СОФТА @lonelyexeff</div>
+</div>
+
+<!-- Mensagem após o expiração -->
+<div class="expired-message" style="display: none;">
+    <p>Этот софт больше не доступен. Свяжитесь с нами через Telegram:</p>
+    <a href="https://t.me/lonelyexeff" target="_blank">Пишите в Telegram @lonelyexeff</a>
+</div>
+
+</body>
+</html>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then((registration) => {
+        console.log('Service Worker зарегистрирован с областью:', registration.scope);
+      })
+      .catch((error) => {
+        console.log('Ошибка регистрации Service Worker:', error);
+      });
+  }
+</script>
